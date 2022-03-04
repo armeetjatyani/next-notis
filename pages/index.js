@@ -4,6 +4,7 @@ import { useState, useRef, Fragment } from "react";
 import { RadioGroup } from "@headlessui/react";
 import toast, { Toaster } from "react-hot-toast";
 import { ArrowCircleUpIcon, BellIcon } from "@heroicons/react/solid";
+import { motion } from "framer-motion";
 
 export default function Home() {
 	const [notificationText, setNotificationText] = useState("Here's a notification for you!");
@@ -113,10 +114,13 @@ export default function Home() {
 					</div>
 
 					{/* Button */}
-					<button className="flex items-center px-10 py-4 space-x-2 font-black text-white transition-all duration-300 bg-black shadow-md rounded-2xl group active:scale-95" onClick={notify}>
-						<BellIcon width={30} height={30} className="group-hover:rotate-[23deg] transition-all duration-300" />
+
+					<motion.button initial="initial" whileHover="hover" whileTap="tapped" variants={{ hover: { scale: 0.95 } }} className="flex items-center px-10 py-4 space-x-2 font-black text-white bg-black shadow-xl rounded-2xl" onClick={notify}>
+						<motion.div variants={{ hover: { rotate: 23, scale: 0.9 }, tapped: { rotate: -23 }, initial: { rotate: 0 } }}>
+							<BellIcon width={30} height={30} className="" />
+						</motion.div>
 						<p>Show Notification</p>
-					</button>
+					</motion.button>
 				</div>
 
 				{/* Noti UI */}
