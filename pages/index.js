@@ -98,8 +98,8 @@ export default function Home() {
 
 					{/* Type */}
 					<div className="space-y-2">
-						<h1>Type</h1>
-						<RadioGroup value={type} onChange={setType} className="flex items-center justify-evenly">
+						<h1 className="text-xl font-black">Type</h1>
+						<RadioGroup value={type} onChange={setType} className="flex items-center justify-between">
 							<RadioGroup.Option value="success" as={Fragment}>
 								{({ checked }) => <button className={`px-4 py-1 rounded-lg select-none ring-2 ring-black hover:scale-95 duration-300 ${checked && "bg-black text-white"}`}>Success</button>}
 							</RadioGroup.Option>
@@ -115,7 +115,7 @@ export default function Home() {
 					{/* Button */}
 					<button className="flex items-center px-10 py-4 space-x-2 font-black text-white transition-all duration-300 bg-black shadow-md rounded-2xl group active:scale-95" onClick={notify}>
 						<BellIcon width={30} height={30} className="group-hover:rotate-[23deg] transition-all duration-300" />
-						<p>Dispatch Notification</p>
+						<p>Show Notification</p>
 					</button>
 				</div>
 
@@ -123,6 +123,7 @@ export default function Home() {
 				<Toaster
 					position={pos}
 					toastOptions={{
+						duration: 5000,
 						className: "transition-all duration-300",
 						success: {
 							className: "",
